@@ -12,17 +12,11 @@ namespace Catalog.API.Data
         }
 
         public int Page { get; set; }
-
         public int PageSize { get; set; }
-        
         public IEnumerable<T> Items { get; set; }
-
         public int ItemTotalCount { get; set; }
-
         public bool HasNext { get; set; }
-
         public bool HasPrevious { get; set; }
-
         public int PageTotalCount 
         { 
             get
@@ -32,11 +26,8 @@ namespace Catalog.API.Data
                 {
                     return 1;
                 }
-
                 int pageCount = ItemTotalCount / this.PageSize;
-
                 pageCount += this.ItemTotalCount % this.PageSize > 0 ? 1 : 0;
-
                 return pageCount == 0 ? 1 : pageCount;
             }
         }
